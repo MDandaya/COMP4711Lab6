@@ -1,4 +1,4 @@
-.peoples {
+.artists {
     width: 50%;
     margin: 0 auto;
     border: 1px solid silver;
@@ -6,10 +6,10 @@
     padding: 10px;
 }
 
-.peoples img {
+.artists img {
     display: inline-block;
 }
-.peoples div {
+.artists div {
     display: inline-block;
     width: 68%
 }
