@@ -1,5 +1,5 @@
 let peopleModel = require('../models/peopleData');
-
+//
 exports.getAllPeople = (req,res,next) => {
    let Peoples = peopleModel.getall();
    Peoples.then( ([rows, fieldData]) => {
