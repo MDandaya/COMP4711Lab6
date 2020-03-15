@@ -13,7 +13,7 @@ function getAllArtist() {
 
 // Gets individuals from the database with like names
 function getArtist(search) {
-    return db.execute("Select * from artist where name like %" + search + "%");
+    return db.execute("Select * from artist where name like '%" + search + "%'");
 }
 
 module.exports = {
