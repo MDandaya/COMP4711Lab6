@@ -11,9 +11,9 @@ function getAllArtist() {
     return db.execute('Select * from artist');
 }
 
-// Gets a specific individual from the database
-function getArtist(id) {
-    return db.execute("Select * from artist where id = " + id);
+// Gets individuals from the database with like names
+function getArtist(search) {
+    return db.execute("Select * from artist where name like %" + search + "%");
 }
 
 module.exports = {
