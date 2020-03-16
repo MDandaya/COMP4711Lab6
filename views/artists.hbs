@@ -1,11 +1,26 @@
-{{#each artist}}
-    <a href="/artist/{{this.name}}">
-        <div class="artists">
-            <img src='{{this.imageURL}}' />
-            <div>
-                <p><b>{{this.name}}</b></p>
-                <p>{{this.about}}</p>
-            </div>
+<div id="top">
+    <h2>Artist Directory</h2>
+    <input type="text" placeholder="" id="search-bar">
+    <button onclick="createArtistParams()">Add</button>
+    <button onclick="search()">Search</button>
+    <!-- <button onclick="test()">Test</button> -->
+</div>
+
+<div class='flex-container'>
+    {{#each artist}}
+    <div class='flex-item hover'>
+        {{!-- remove this part anchor tag after search bar works --}}
+        {{!-- <a href="/artist/{{this.name}}"> --}}
+        <img src='{{this.imageURL}}' />
+        <div class='description'>
+            <strong>{{this.name}}</strong><br>
+            <span>{{this.about}}</span>
         </div>
-    </a>
-{{/each}}
+        <input class="del-button" type="button" value="delete" onclick="deleteNode(this)">
+
+        {{!-- </a> --}}
+        {{!-- remove this part anchor tag after search bar works --}}
+    </div>
+
+    {{/each}}
+</div>

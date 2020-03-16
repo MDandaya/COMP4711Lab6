@@ -16,8 +16,13 @@ function getArtist(search) {
     return db.execute("Select * from artist where name like '%" + search + "%'");
 }
 
+function deleteArtist(name, about, imageURL) {
+    return db.execute("delete from artist where name = '" + name + "' and about = '" + about + "' and imageURL = '" + imageURL + "'");
+}
+
 module.exports = {
     add : addArtist,
     getall : getAllArtist,
-    getartist: getArtist 
+    getartist: getArtist,
+    deleteartist: deleteArtist
 }
