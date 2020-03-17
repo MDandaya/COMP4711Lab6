@@ -1,5 +1,5 @@
 const isImageUrl = require('is-image-url');
-let artistModel = require('../models/artistData');
+let artistModel = require('../models/artistModel');
 //
 exports.getAllArtist = (req, res, next) => {
     let Artists = artistModel.getall();
@@ -7,10 +7,6 @@ exports.getAllArtist = (req, res, next) => {
         res.render('artists', { artist: rows, artistsCSS: true, artistsJS: true });
     });
 
-};
-
-exports.getAddArtist = (req, res, next) => {
-    res.render('artistadd', { formsCSS: true });
 };
 
 exports.getArtist = (req, res, next) => {
@@ -24,7 +20,7 @@ exports.getArtist = (req, res, next) => {
     // });
 }
 
-exports.postAddArtist = (req, res, next) => {
+exports.postAddArtist = async (req, res, next) => {
     let p_name = req.body.name;
     let p_about = req.body.about;
     let p_imageURL = req.body.imageURL;
@@ -39,15 +35,15 @@ exports.postAddArtist = (req, res, next) => {
         imageURL: p_imageURL
     }
 
-    artistModel.add(pOject);
+    await artistModel.add(pOject);
     res.redirect(301, '/artists');
 }
 
-exports.postDeleteArtist = (req, res, next) => {
+exports.postDeleteArtist = async (req, res, next) => {
     let p_name = req.body.name;
     let p_about = req.body.about;
     let p_imageURL = req.body.imageURL;
 
-    artistModel.deleteartist(p_name, p_about, p_imageURL);
-    res.redirect(301, '/artists');
+    await artistModel.deleteartist(p_name, p_about, p_imageURL);
+    res.redirect(301, 'back');
 }

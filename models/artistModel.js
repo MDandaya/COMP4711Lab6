@@ -1,9 +1,9 @@
 let db = require('../util/database');
 
 // Add a single individual to the database
-function addArtist(data) {
+async function addArtist(data) {
     let sql = "Insert into artist (name, about, imageURL) values ('" + data.name+ "','"+ data.about+ "','" + data.imageURL + "')";
-    db.execute(sql);
+    await db.execute(sql);
 }
 
 // Gets all the individuals in the database
@@ -17,7 +17,7 @@ function getArtist(search) {
 }
 
 function deleteArtist(name, about, imageURL) {
-    return db.execute("delete from artist where name = '" + name + "' and about = '" + about + "' and imageURL = '" + imageURL + "'");
+    return db.execute("delete from artist where name = '" + name + "' and about = '" + about + "' and imageURL = '" + imageURL + "' limit 1");
 }
 
 module.exports = {

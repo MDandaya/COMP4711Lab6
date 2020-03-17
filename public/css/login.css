@@ -1,0 +1,45 @@
+html {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+#login-box {
+    margin: auto;
+    min-width: 500px;
+    width: 50%;
+    background-color: beige;
+    padding: 20px;
+}
+
+#login-box > * {
+    text-align: center;
+}
+
+#login-form {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+#login-form > #inputs * {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+#login-form > button {
+    border: none;
+    text-decoration: none;
+    background-color: gold;
+    margin: 10px;
+    font-size: 40px;;
+    color: white;
+    
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+

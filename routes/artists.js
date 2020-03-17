@@ -1,10 +1,8 @@
 const express = require('express');
-const artistController = require('../controllers/artist');
+const artistController = require('../controllers/artistController');
 const router = express.Router();
 
 router.get('/artists', artistController.getAllArtist);
-
-router.get('/artist/add', artistController.getAddArtist);
 
 router.get('/artists/:search', artistController.getArtist);
 

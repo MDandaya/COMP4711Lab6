@@ -40,10 +40,10 @@ function createArtistParams() {
     fieldImage.setAttribute('type', 'text');
     fieldImage.setAttribute('name', 'imageURL');
 
-    let addButton = document.createElement("input");
-    addButton.setAttribute("type", "submit");
-    addButton.setAttribute("value", "Add")
+    let addButton = document.createElement("button");
     addButton.setAttribute("class", "add-button");
+    addButton.setAttribute("type", "submit");
+    addButton.textContent = 'Add';
 
     addForm.appendChild(fieldName);
     addForm.appendChild(fieldAbout);
@@ -60,12 +60,24 @@ function deleteNode(child) {
     var name = parent.children[1].children[0].textContent;
     var about = parent.children[1].children[2].textContent;
 
-    var a = { "name": name, "about": about, "imageURL": imageurl };
+    // var xhr = new XMLHttpRequest();
+    // xhr.open("POST", '/artists/delete', true);
+    // xhr.setRequestHeader('Content-Type', 'application/json');
+    // xhr.send(JSON.stringify({
+    //     'name': name,
+    //     'about': about,
+    //     'imageURL': imageurl
+    // }));
 
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", '/artists/delete', true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.send(JSON.stringify({
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            window.location = '/artists/'
+        }
+    };
+    xhttp.open("POST", '/artists/delete', true);
+    xhttp.setRequestHeader('Content-Type', 'application/json');
+    xhttp.send(JSON.stringify({
         'name': name,
         'about': about,
         'imageURL': imageurl

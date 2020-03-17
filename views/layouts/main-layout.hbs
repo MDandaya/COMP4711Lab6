@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ pageTitle }}</title>
+    <link href='/css/login.css' rel='stylesheet' />
     <link href='/css/main.css' rel='stylesheet' />
     {{#if artistsCSS}}
         <link href='/css/style.css' rel='stylesheet' />
@@ -18,15 +19,6 @@
 </head>
 
 <body>
-    <header class="main-header">
-        <nav class="main-header__nav">
-            <ul class="main-header__item-list">
-                <li class="main-header__item"><a href="/">Home</a></li>
-                <li class="main-header__item"><a href="/artists">All Artist</a></li>
-                <li class="main-header__item"><a href="/artist/add">Add Artist</a></li>
-            </ul>
-        </nav>
-    </header>
     {{{ body }}}
 </body>
 
