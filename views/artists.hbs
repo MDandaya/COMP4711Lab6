@@ -1,7 +1,7 @@
 <header class="main-header">
     <nav class="main-header__nav">
         <ul class="main-header__item-list">
-            <li class="main-header__item"><a href="/">Logout</a></li>
+            <li class="main-header__item"><a href="/logout">Logout</a></li>
         </ul>
     </nav>
 </header>
@@ -17,17 +17,12 @@
 <div class='flex-container'>
     {{#each artist}}
     <div class='flex-item hover'>
-        {{!-- remove this part anchor tag after search bar works --}}
-        {{!-- <a href="/artist/{{this.name}}"> --}}
         <img src='{{this.imageURL}}' />
         <div class='description'>
             <strong>{{this.name}}</strong><br>
             <span>{{this.about}}</span>
         </div>
         <input class="del-button" type="button" value="delete" onclick="deleteNode(this)">
-
-        {{!-- </a> --}}
-        {{!-- remove this part anchor tag after search bar works --}}
     </div>
 
     {{/each}}

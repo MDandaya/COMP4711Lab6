@@ -2,6 +2,13 @@ const isImageUrl = require('is-image-url');
 let artistModel = require('../models/artistModel');
 //
 exports.getAllArtist = (req, res, next) => {
+
+    let user = req.session.user;
+    console.log('ac' + user);
+    if (!user) {
+        return res.redirect('/');
+    }
+
     let Artists = artistModel.getall();
     Artists.then(([rows, fieldData]) => {
         res.render('artists', { artist: rows, artistsCSS: true, artistsJS: true });
@@ -10,14 +17,18 @@ exports.getAllArtist = (req, res, next) => {
 };
 
 exports.getArtist = (req, res, next) => {
+    
+    let user = req.session.user;
+    console.log(user);
+    if (!user) {
+        return res.redirect('/');
+    }
+
     let search = req.params.search;
     let Artists = artistModel.getartist(search);
     Artists.then(([rows, fieldData]) => {
         res.render('artists', { artist: rows, artistsCSS: true, artistsJS: true });
     });
-    // Artist.then( ([data,metadata]) => {
-    //     res.render('artist', {artist: data[0], artistCSS: true});
-    // });
 }
 
 exports.postAddArtist = async (req, res, next) => {
