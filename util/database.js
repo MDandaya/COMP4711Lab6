@@ -1,11 +1,11 @@
-const mysql = require('mysql2');
+const Pool = require("pg").Pool;
 
-// connect to a database artistbook running on your localmachine
-const pool = mysql.createPool({
-    host: 'remotemysql.com',
-    user: 'b7UuofOqP2',
-    database: 'b7UuofOqP2',
-    password: ' 8LuOhBQah0'
+const pool = new Pool({
+  host: "ec2-23-22-156-110.compute-1.amazonaws.com",
+  user: "zzqpkzofxcmrzx",
+  database: "ddv2oh3g64ir7t",
+  password: "b79c337b067981991c59257d67d02806a799d2a5c51abd419d96e3a779d9833b",
+  port: 5432,
+  ssl: true,
 });
-
-module.exports = pool.promise();
+module.exports = pool;
